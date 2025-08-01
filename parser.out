@@ -1,0 +1,1187 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement
+Rule 3     statement_list -> statement_list statement
+Rule 4     statement -> assign_statement
+Rule 5     statement -> print_statement
+Rule 6     statement -> if_statement
+Rule 7     statement -> input_statement
+Rule 8     statement -> for_statement
+Rule 9     assign_statement -> ID IGUAL expression
+Rule 10    print_statement -> PRINT expression
+Rule 11    input_statement -> INPUT ID
+Rule 12    if_statement -> IF condition THEN statement
+Rule 13    for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID
+Rule 14    condition -> expression MAIOR_QUE expression
+Rule 15    condition -> expression MENOR_QUE expression
+Rule 16    condition -> expression IGUAL IGUAL expression
+Rule 17    condition -> expression DIFERENTE expression
+Rule 18    condition -> expression MAIOR_IGUAL expression
+Rule 19    condition -> expression MENOR_IGUAL expression
+Rule 20    expression -> expression MAIS term
+Rule 21    expression -> expression MENOS term
+Rule 22    expression -> term
+Rule 23    term -> term VEZES factor
+Rule 24    term -> term DIVIDIR factor
+Rule 25    term -> factor
+Rule 26    factor -> NUMERO
+Rule 27    factor -> ID
+Rule 28    factor -> PARENTESE_ESQ expression PARENTESE_DIR
+Rule 29    factor -> MENOS factor
+
+Terminals, with rules where they appear
+
+DIFERENTE            : 17
+DIVIDIR              : 24
+FOR                  : 13
+ID                   : 9 11 13 13 27
+IF                   : 12
+IGUAL                : 9 13 16 16
+INPUT                : 11
+MAIOR_IGUAL          : 18
+MAIOR_QUE            : 14
+MAIS                 : 20
+MENOR_IGUAL          : 19
+MENOR_QUE            : 15
+MENOS                : 21 29
+NEXT                 : 13
+NUMERO               : 26
+PARENTESE_DIR        : 28
+PARENTESE_ESQ        : 28
+PRINT                : 10
+THEN                 : 12
+TO                   : 13
+VEZES                : 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+assign_statement     : 4
+condition            : 12
+expression           : 9 10 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 21 28
+factor               : 23 24 25 29
+for_statement        : 8
+if_statement         : 6
+input_statement      : 7
+print_statement      : 5
+program              : 0
+statement            : 2 3 12
+statement_list       : 1 3 13
+term                 : 20 21 22 23 24
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement
+    (3) statement_list -> . statement_list statement
+    (4) statement -> . assign_statement
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . input_statement
+    (8) statement -> . for_statement
+    (9) assign_statement -> . ID IGUAL expression
+    (10) print_statement -> . PRINT expression
+    (12) if_statement -> . IF condition THEN statement
+    (11) input_statement -> . INPUT ID
+    (13) for_statement -> . FOR ID IGUAL expression TO expression statement_list NEXT ID
+
+    ID              shift and go to state 9
+    PRINT           shift and go to state 10
+    IF              shift and go to state 11
+    INPUT           shift and go to state 12
+    FOR             shift and go to state 13
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    assign_statement               shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    input_statement                shift and go to state 7
+    for_statement                  shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (3) statement_list -> statement_list . statement
+    (4) statement -> . assign_statement
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . input_statement
+    (8) statement -> . for_statement
+    (9) assign_statement -> . ID IGUAL expression
+    (10) print_statement -> . PRINT expression
+    (12) if_statement -> . IF condition THEN statement
+    (11) input_statement -> . INPUT ID
+    (13) for_statement -> . FOR ID IGUAL expression TO expression statement_list NEXT ID
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    ID              shift and go to state 9
+    PRINT           shift and go to state 10
+    IF              shift and go to state 11
+    INPUT           shift and go to state 12
+    FOR             shift and go to state 13
+
+    statement                      shift and go to state 14
+    assign_statement               shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    input_statement                shift and go to state 7
+    for_statement                  shift and go to state 8
+
+state 3
+
+    (2) statement_list -> statement .
+
+    ID              reduce using rule 2 (statement_list -> statement .)
+    PRINT           reduce using rule 2 (statement_list -> statement .)
+    IF              reduce using rule 2 (statement_list -> statement .)
+    INPUT           reduce using rule 2 (statement_list -> statement .)
+    FOR             reduce using rule 2 (statement_list -> statement .)
+    $end            reduce using rule 2 (statement_list -> statement .)
+    NEXT            reduce using rule 2 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> assign_statement .
+
+    ID              reduce using rule 4 (statement -> assign_statement .)
+    PRINT           reduce using rule 4 (statement -> assign_statement .)
+    IF              reduce using rule 4 (statement -> assign_statement .)
+    INPUT           reduce using rule 4 (statement -> assign_statement .)
+    FOR             reduce using rule 4 (statement -> assign_statement .)
+    $end            reduce using rule 4 (statement -> assign_statement .)
+    NEXT            reduce using rule 4 (statement -> assign_statement .)
+
+
+state 5
+
+    (5) statement -> print_statement .
+
+    ID              reduce using rule 5 (statement -> print_statement .)
+    PRINT           reduce using rule 5 (statement -> print_statement .)
+    IF              reduce using rule 5 (statement -> print_statement .)
+    INPUT           reduce using rule 5 (statement -> print_statement .)
+    FOR             reduce using rule 5 (statement -> print_statement .)
+    $end            reduce using rule 5 (statement -> print_statement .)
+    NEXT            reduce using rule 5 (statement -> print_statement .)
+
+
+state 6
+
+    (6) statement -> if_statement .
+
+    ID              reduce using rule 6 (statement -> if_statement .)
+    PRINT           reduce using rule 6 (statement -> if_statement .)
+    IF              reduce using rule 6 (statement -> if_statement .)
+    INPUT           reduce using rule 6 (statement -> if_statement .)
+    FOR             reduce using rule 6 (statement -> if_statement .)
+    $end            reduce using rule 6 (statement -> if_statement .)
+    NEXT            reduce using rule 6 (statement -> if_statement .)
+
+
+state 7
+
+    (7) statement -> input_statement .
+
+    ID              reduce using rule 7 (statement -> input_statement .)
+    PRINT           reduce using rule 7 (statement -> input_statement .)
+    IF              reduce using rule 7 (statement -> input_statement .)
+    INPUT           reduce using rule 7 (statement -> input_statement .)
+    FOR             reduce using rule 7 (statement -> input_statement .)
+    $end            reduce using rule 7 (statement -> input_statement .)
+    NEXT            reduce using rule 7 (statement -> input_statement .)
+
+
+state 8
+
+    (8) statement -> for_statement .
+
+    ID              reduce using rule 8 (statement -> for_statement .)
+    PRINT           reduce using rule 8 (statement -> for_statement .)
+    IF              reduce using rule 8 (statement -> for_statement .)
+    INPUT           reduce using rule 8 (statement -> for_statement .)
+    FOR             reduce using rule 8 (statement -> for_statement .)
+    $end            reduce using rule 8 (statement -> for_statement .)
+    NEXT            reduce using rule 8 (statement -> for_statement .)
+
+
+state 9
+
+    (9) assign_statement -> ID . IGUAL expression
+
+    IGUAL           shift and go to state 15
+
+
+state 10
+
+    (10) print_statement -> PRINT . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 16
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 11
+
+    (12) if_statement -> IF . condition THEN statement
+    (14) condition -> . expression MAIOR_QUE expression
+    (15) condition -> . expression MENOR_QUE expression
+    (16) condition -> . expression IGUAL IGUAL expression
+    (17) condition -> . expression DIFERENTE expression
+    (18) condition -> . expression MAIOR_IGUAL expression
+    (19) condition -> . expression MENOR_IGUAL expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    condition                      shift and go to state 23
+    expression                     shift and go to state 24
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 12
+
+    (11) input_statement -> INPUT . ID
+
+    ID              shift and go to state 25
+
+
+state 13
+
+    (13) for_statement -> FOR . ID IGUAL expression TO expression statement_list NEXT ID
+
+    ID              shift and go to state 26
+
+
+state 14
+
+    (3) statement_list -> statement_list statement .
+
+    ID              reduce using rule 3 (statement_list -> statement_list statement .)
+    PRINT           reduce using rule 3 (statement_list -> statement_list statement .)
+    IF              reduce using rule 3 (statement_list -> statement_list statement .)
+    INPUT           reduce using rule 3 (statement_list -> statement_list statement .)
+    FOR             reduce using rule 3 (statement_list -> statement_list statement .)
+    $end            reduce using rule 3 (statement_list -> statement_list statement .)
+    NEXT            reduce using rule 3 (statement_list -> statement_list statement .)
+
+
+state 15
+
+    (9) assign_statement -> ID IGUAL . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 27
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 16
+
+    (10) print_statement -> PRINT expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    ID              reduce using rule 10 (print_statement -> PRINT expression .)
+    PRINT           reduce using rule 10 (print_statement -> PRINT expression .)
+    IF              reduce using rule 10 (print_statement -> PRINT expression .)
+    INPUT           reduce using rule 10 (print_statement -> PRINT expression .)
+    FOR             reduce using rule 10 (print_statement -> PRINT expression .)
+    $end            reduce using rule 10 (print_statement -> PRINT expression .)
+    NEXT            reduce using rule 10 (print_statement -> PRINT expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 17
+
+    (22) expression -> term .
+    (23) term -> term . VEZES factor
+    (24) term -> term . DIVIDIR factor
+
+    MAIS            reduce using rule 22 (expression -> term .)
+    MENOS           reduce using rule 22 (expression -> term .)
+    ID              reduce using rule 22 (expression -> term .)
+    PRINT           reduce using rule 22 (expression -> term .)
+    IF              reduce using rule 22 (expression -> term .)
+    INPUT           reduce using rule 22 (expression -> term .)
+    FOR             reduce using rule 22 (expression -> term .)
+    $end            reduce using rule 22 (expression -> term .)
+    NEXT            reduce using rule 22 (expression -> term .)
+    MAIOR_QUE       reduce using rule 22 (expression -> term .)
+    MENOR_QUE       reduce using rule 22 (expression -> term .)
+    IGUAL           reduce using rule 22 (expression -> term .)
+    DIFERENTE       reduce using rule 22 (expression -> term .)
+    MAIOR_IGUAL     reduce using rule 22 (expression -> term .)
+    MENOR_IGUAL     reduce using rule 22 (expression -> term .)
+    PARENTESE_DIR   reduce using rule 22 (expression -> term .)
+    THEN            reduce using rule 22 (expression -> term .)
+    TO              reduce using rule 22 (expression -> term .)
+    VEZES           shift and go to state 30
+    DIVIDIR         shift and go to state 31
+
+
+state 18
+
+    (29) factor -> MENOS . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    factor                         shift and go to state 32
+
+state 19
+
+    (25) term -> factor .
+
+    VEZES           reduce using rule 25 (term -> factor .)
+    DIVIDIR         reduce using rule 25 (term -> factor .)
+    MAIS            reduce using rule 25 (term -> factor .)
+    MENOS           reduce using rule 25 (term -> factor .)
+    ID              reduce using rule 25 (term -> factor .)
+    PRINT           reduce using rule 25 (term -> factor .)
+    IF              reduce using rule 25 (term -> factor .)
+    INPUT           reduce using rule 25 (term -> factor .)
+    FOR             reduce using rule 25 (term -> factor .)
+    $end            reduce using rule 25 (term -> factor .)
+    NEXT            reduce using rule 25 (term -> factor .)
+    MAIOR_QUE       reduce using rule 25 (term -> factor .)
+    MENOR_QUE       reduce using rule 25 (term -> factor .)
+    IGUAL           reduce using rule 25 (term -> factor .)
+    DIFERENTE       reduce using rule 25 (term -> factor .)
+    MAIOR_IGUAL     reduce using rule 25 (term -> factor .)
+    MENOR_IGUAL     reduce using rule 25 (term -> factor .)
+    PARENTESE_DIR   reduce using rule 25 (term -> factor .)
+    THEN            reduce using rule 25 (term -> factor .)
+    TO              reduce using rule 25 (term -> factor .)
+
+
+state 20
+
+    (26) factor -> NUMERO .
+
+    VEZES           reduce using rule 26 (factor -> NUMERO .)
+    DIVIDIR         reduce using rule 26 (factor -> NUMERO .)
+    MAIS            reduce using rule 26 (factor -> NUMERO .)
+    MENOS           reduce using rule 26 (factor -> NUMERO .)
+    ID              reduce using rule 26 (factor -> NUMERO .)
+    PRINT           reduce using rule 26 (factor -> NUMERO .)
+    IF              reduce using rule 26 (factor -> NUMERO .)
+    INPUT           reduce using rule 26 (factor -> NUMERO .)
+    FOR             reduce using rule 26 (factor -> NUMERO .)
+    $end            reduce using rule 26 (factor -> NUMERO .)
+    NEXT            reduce using rule 26 (factor -> NUMERO .)
+    MAIOR_QUE       reduce using rule 26 (factor -> NUMERO .)
+    MENOR_QUE       reduce using rule 26 (factor -> NUMERO .)
+    IGUAL           reduce using rule 26 (factor -> NUMERO .)
+    DIFERENTE       reduce using rule 26 (factor -> NUMERO .)
+    MAIOR_IGUAL     reduce using rule 26 (factor -> NUMERO .)
+    MENOR_IGUAL     reduce using rule 26 (factor -> NUMERO .)
+    PARENTESE_DIR   reduce using rule 26 (factor -> NUMERO .)
+    THEN            reduce using rule 26 (factor -> NUMERO .)
+    TO              reduce using rule 26 (factor -> NUMERO .)
+
+
+state 21
+
+    (27) factor -> ID .
+
+    VEZES           reduce using rule 27 (factor -> ID .)
+    DIVIDIR         reduce using rule 27 (factor -> ID .)
+    MAIS            reduce using rule 27 (factor -> ID .)
+    MENOS           reduce using rule 27 (factor -> ID .)
+    ID              reduce using rule 27 (factor -> ID .)
+    PRINT           reduce using rule 27 (factor -> ID .)
+    IF              reduce using rule 27 (factor -> ID .)
+    INPUT           reduce using rule 27 (factor -> ID .)
+    FOR             reduce using rule 27 (factor -> ID .)
+    $end            reduce using rule 27 (factor -> ID .)
+    NEXT            reduce using rule 27 (factor -> ID .)
+    MAIOR_QUE       reduce using rule 27 (factor -> ID .)
+    MENOR_QUE       reduce using rule 27 (factor -> ID .)
+    IGUAL           reduce using rule 27 (factor -> ID .)
+    DIFERENTE       reduce using rule 27 (factor -> ID .)
+    MAIOR_IGUAL     reduce using rule 27 (factor -> ID .)
+    MENOR_IGUAL     reduce using rule 27 (factor -> ID .)
+    PARENTESE_DIR   reduce using rule 27 (factor -> ID .)
+    THEN            reduce using rule 27 (factor -> ID .)
+    TO              reduce using rule 27 (factor -> ID .)
+
+
+state 22
+
+    (28) factor -> PARENTESE_ESQ . expression PARENTESE_DIR
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 33
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 23
+
+    (12) if_statement -> IF condition . THEN statement
+
+    THEN            shift and go to state 34
+
+
+state 24
+
+    (14) condition -> expression . MAIOR_QUE expression
+    (15) condition -> expression . MENOR_QUE expression
+    (16) condition -> expression . IGUAL IGUAL expression
+    (17) condition -> expression . DIFERENTE expression
+    (18) condition -> expression . MAIOR_IGUAL expression
+    (19) condition -> expression . MENOR_IGUAL expression
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    MAIOR_QUE       shift and go to state 35
+    MENOR_QUE       shift and go to state 36
+    IGUAL           shift and go to state 37
+    DIFERENTE       shift and go to state 38
+    MAIOR_IGUAL     shift and go to state 39
+    MENOR_IGUAL     shift and go to state 40
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 25
+
+    (11) input_statement -> INPUT ID .
+
+    ID              reduce using rule 11 (input_statement -> INPUT ID .)
+    PRINT           reduce using rule 11 (input_statement -> INPUT ID .)
+    IF              reduce using rule 11 (input_statement -> INPUT ID .)
+    INPUT           reduce using rule 11 (input_statement -> INPUT ID .)
+    FOR             reduce using rule 11 (input_statement -> INPUT ID .)
+    $end            reduce using rule 11 (input_statement -> INPUT ID .)
+    NEXT            reduce using rule 11 (input_statement -> INPUT ID .)
+
+
+state 26
+
+    (13) for_statement -> FOR ID . IGUAL expression TO expression statement_list NEXT ID
+
+    IGUAL           shift and go to state 41
+
+
+state 27
+
+    (9) assign_statement -> ID IGUAL expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    ID              reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    PRINT           reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    IF              reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    INPUT           reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    FOR             reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    $end            reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    NEXT            reduce using rule 9 (assign_statement -> ID IGUAL expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 28
+
+    (20) expression -> expression MAIS . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    term                           shift and go to state 42
+    factor                         shift and go to state 19
+
+state 29
+
+    (21) expression -> expression MENOS . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    term                           shift and go to state 43
+    factor                         shift and go to state 19
+
+state 30
+
+    (23) term -> term VEZES . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    factor                         shift and go to state 44
+
+state 31
+
+    (24) term -> term DIVIDIR . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    factor                         shift and go to state 45
+
+state 32
+
+    (29) factor -> MENOS factor .
+
+    VEZES           reduce using rule 29 (factor -> MENOS factor .)
+    DIVIDIR         reduce using rule 29 (factor -> MENOS factor .)
+    MAIS            reduce using rule 29 (factor -> MENOS factor .)
+    MENOS           reduce using rule 29 (factor -> MENOS factor .)
+    ID              reduce using rule 29 (factor -> MENOS factor .)
+    PRINT           reduce using rule 29 (factor -> MENOS factor .)
+    IF              reduce using rule 29 (factor -> MENOS factor .)
+    INPUT           reduce using rule 29 (factor -> MENOS factor .)
+    FOR             reduce using rule 29 (factor -> MENOS factor .)
+    $end            reduce using rule 29 (factor -> MENOS factor .)
+    NEXT            reduce using rule 29 (factor -> MENOS factor .)
+    MAIOR_QUE       reduce using rule 29 (factor -> MENOS factor .)
+    MENOR_QUE       reduce using rule 29 (factor -> MENOS factor .)
+    IGUAL           reduce using rule 29 (factor -> MENOS factor .)
+    DIFERENTE       reduce using rule 29 (factor -> MENOS factor .)
+    MAIOR_IGUAL     reduce using rule 29 (factor -> MENOS factor .)
+    MENOR_IGUAL     reduce using rule 29 (factor -> MENOS factor .)
+    PARENTESE_DIR   reduce using rule 29 (factor -> MENOS factor .)
+    THEN            reduce using rule 29 (factor -> MENOS factor .)
+    TO              reduce using rule 29 (factor -> MENOS factor .)
+
+
+state 33
+
+    (28) factor -> PARENTESE_ESQ expression . PARENTESE_DIR
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    PARENTESE_DIR   shift and go to state 46
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 34
+
+    (12) if_statement -> IF condition THEN . statement
+    (4) statement -> . assign_statement
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . input_statement
+    (8) statement -> . for_statement
+    (9) assign_statement -> . ID IGUAL expression
+    (10) print_statement -> . PRINT expression
+    (12) if_statement -> . IF condition THEN statement
+    (11) input_statement -> . INPUT ID
+    (13) for_statement -> . FOR ID IGUAL expression TO expression statement_list NEXT ID
+
+    ID              shift and go to state 9
+    PRINT           shift and go to state 10
+    IF              shift and go to state 11
+    INPUT           shift and go to state 12
+    FOR             shift and go to state 13
+
+    statement                      shift and go to state 47
+    assign_statement               shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    input_statement                shift and go to state 7
+    for_statement                  shift and go to state 8
+
+state 35
+
+    (14) condition -> expression MAIOR_QUE . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 48
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 36
+
+    (15) condition -> expression MENOR_QUE . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 49
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 37
+
+    (16) condition -> expression IGUAL . IGUAL expression
+
+    IGUAL           shift and go to state 50
+
+
+state 38
+
+    (17) condition -> expression DIFERENTE . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 51
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 39
+
+    (18) condition -> expression MAIOR_IGUAL . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 52
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 40
+
+    (19) condition -> expression MENOR_IGUAL . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 53
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 41
+
+    (13) for_statement -> FOR ID IGUAL . expression TO expression statement_list NEXT ID
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 54
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 42
+
+    (20) expression -> expression MAIS term .
+    (23) term -> term . VEZES factor
+    (24) term -> term . DIVIDIR factor
+
+    MAIS            reduce using rule 20 (expression -> expression MAIS term .)
+    MENOS           reduce using rule 20 (expression -> expression MAIS term .)
+    ID              reduce using rule 20 (expression -> expression MAIS term .)
+    PRINT           reduce using rule 20 (expression -> expression MAIS term .)
+    IF              reduce using rule 20 (expression -> expression MAIS term .)
+    INPUT           reduce using rule 20 (expression -> expression MAIS term .)
+    FOR             reduce using rule 20 (expression -> expression MAIS term .)
+    $end            reduce using rule 20 (expression -> expression MAIS term .)
+    NEXT            reduce using rule 20 (expression -> expression MAIS term .)
+    MAIOR_QUE       reduce using rule 20 (expression -> expression MAIS term .)
+    MENOR_QUE       reduce using rule 20 (expression -> expression MAIS term .)
+    IGUAL           reduce using rule 20 (expression -> expression MAIS term .)
+    DIFERENTE       reduce using rule 20 (expression -> expression MAIS term .)
+    MAIOR_IGUAL     reduce using rule 20 (expression -> expression MAIS term .)
+    MENOR_IGUAL     reduce using rule 20 (expression -> expression MAIS term .)
+    PARENTESE_DIR   reduce using rule 20 (expression -> expression MAIS term .)
+    THEN            reduce using rule 20 (expression -> expression MAIS term .)
+    TO              reduce using rule 20 (expression -> expression MAIS term .)
+    VEZES           shift and go to state 30
+    DIVIDIR         shift and go to state 31
+
+
+state 43
+
+    (21) expression -> expression MENOS term .
+    (23) term -> term . VEZES factor
+    (24) term -> term . DIVIDIR factor
+
+    MAIS            reduce using rule 21 (expression -> expression MENOS term .)
+    MENOS           reduce using rule 21 (expression -> expression MENOS term .)
+    ID              reduce using rule 21 (expression -> expression MENOS term .)
+    PRINT           reduce using rule 21 (expression -> expression MENOS term .)
+    IF              reduce using rule 21 (expression -> expression MENOS term .)
+    INPUT           reduce using rule 21 (expression -> expression MENOS term .)
+    FOR             reduce using rule 21 (expression -> expression MENOS term .)
+    $end            reduce using rule 21 (expression -> expression MENOS term .)
+    NEXT            reduce using rule 21 (expression -> expression MENOS term .)
+    MAIOR_QUE       reduce using rule 21 (expression -> expression MENOS term .)
+    MENOR_QUE       reduce using rule 21 (expression -> expression MENOS term .)
+    IGUAL           reduce using rule 21 (expression -> expression MENOS term .)
+    DIFERENTE       reduce using rule 21 (expression -> expression MENOS term .)
+    MAIOR_IGUAL     reduce using rule 21 (expression -> expression MENOS term .)
+    MENOR_IGUAL     reduce using rule 21 (expression -> expression MENOS term .)
+    PARENTESE_DIR   reduce using rule 21 (expression -> expression MENOS term .)
+    THEN            reduce using rule 21 (expression -> expression MENOS term .)
+    TO              reduce using rule 21 (expression -> expression MENOS term .)
+    VEZES           shift and go to state 30
+    DIVIDIR         shift and go to state 31
+
+
+state 44
+
+    (23) term -> term VEZES factor .
+
+    VEZES           reduce using rule 23 (term -> term VEZES factor .)
+    DIVIDIR         reduce using rule 23 (term -> term VEZES factor .)
+    MAIS            reduce using rule 23 (term -> term VEZES factor .)
+    MENOS           reduce using rule 23 (term -> term VEZES factor .)
+    ID              reduce using rule 23 (term -> term VEZES factor .)
+    PRINT           reduce using rule 23 (term -> term VEZES factor .)
+    IF              reduce using rule 23 (term -> term VEZES factor .)
+    INPUT           reduce using rule 23 (term -> term VEZES factor .)
+    FOR             reduce using rule 23 (term -> term VEZES factor .)
+    $end            reduce using rule 23 (term -> term VEZES factor .)
+    NEXT            reduce using rule 23 (term -> term VEZES factor .)
+    MAIOR_QUE       reduce using rule 23 (term -> term VEZES factor .)
+    MENOR_QUE       reduce using rule 23 (term -> term VEZES factor .)
+    IGUAL           reduce using rule 23 (term -> term VEZES factor .)
+    DIFERENTE       reduce using rule 23 (term -> term VEZES factor .)
+    MAIOR_IGUAL     reduce using rule 23 (term -> term VEZES factor .)
+    MENOR_IGUAL     reduce using rule 23 (term -> term VEZES factor .)
+    PARENTESE_DIR   reduce using rule 23 (term -> term VEZES factor .)
+    THEN            reduce using rule 23 (term -> term VEZES factor .)
+    TO              reduce using rule 23 (term -> term VEZES factor .)
+
+
+state 45
+
+    (24) term -> term DIVIDIR factor .
+
+    VEZES           reduce using rule 24 (term -> term DIVIDIR factor .)
+    DIVIDIR         reduce using rule 24 (term -> term DIVIDIR factor .)
+    MAIS            reduce using rule 24 (term -> term DIVIDIR factor .)
+    MENOS           reduce using rule 24 (term -> term DIVIDIR factor .)
+    ID              reduce using rule 24 (term -> term DIVIDIR factor .)
+    PRINT           reduce using rule 24 (term -> term DIVIDIR factor .)
+    IF              reduce using rule 24 (term -> term DIVIDIR factor .)
+    INPUT           reduce using rule 24 (term -> term DIVIDIR factor .)
+    FOR             reduce using rule 24 (term -> term DIVIDIR factor .)
+    $end            reduce using rule 24 (term -> term DIVIDIR factor .)
+    NEXT            reduce using rule 24 (term -> term DIVIDIR factor .)
+    MAIOR_QUE       reduce using rule 24 (term -> term DIVIDIR factor .)
+    MENOR_QUE       reduce using rule 24 (term -> term DIVIDIR factor .)
+    IGUAL           reduce using rule 24 (term -> term DIVIDIR factor .)
+    DIFERENTE       reduce using rule 24 (term -> term DIVIDIR factor .)
+    MAIOR_IGUAL     reduce using rule 24 (term -> term DIVIDIR factor .)
+    MENOR_IGUAL     reduce using rule 24 (term -> term DIVIDIR factor .)
+    PARENTESE_DIR   reduce using rule 24 (term -> term DIVIDIR factor .)
+    THEN            reduce using rule 24 (term -> term DIVIDIR factor .)
+    TO              reduce using rule 24 (term -> term DIVIDIR factor .)
+
+
+state 46
+
+    (28) factor -> PARENTESE_ESQ expression PARENTESE_DIR .
+
+    VEZES           reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    DIVIDIR         reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MAIS            reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MENOS           reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    ID              reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    PRINT           reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    IF              reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    INPUT           reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    FOR             reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    $end            reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    NEXT            reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MAIOR_QUE       reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MENOR_QUE       reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    IGUAL           reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    DIFERENTE       reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MAIOR_IGUAL     reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    MENOR_IGUAL     reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    PARENTESE_DIR   reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    THEN            reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+    TO              reduce using rule 28 (factor -> PARENTESE_ESQ expression PARENTESE_DIR .)
+
+
+state 47
+
+    (12) if_statement -> IF condition THEN statement .
+
+    ID              reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    PRINT           reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    IF              reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    INPUT           reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    FOR             reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    $end            reduce using rule 12 (if_statement -> IF condition THEN statement .)
+    NEXT            reduce using rule 12 (if_statement -> IF condition THEN statement .)
+
+
+state 48
+
+    (14) condition -> expression MAIOR_QUE expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 14 (condition -> expression MAIOR_QUE expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 49
+
+    (15) condition -> expression MENOR_QUE expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 15 (condition -> expression MENOR_QUE expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 50
+
+    (16) condition -> expression IGUAL IGUAL . expression
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 55
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 51
+
+    (17) condition -> expression DIFERENTE expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 17 (condition -> expression DIFERENTE expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 52
+
+    (18) condition -> expression MAIOR_IGUAL expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 18 (condition -> expression MAIOR_IGUAL expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 53
+
+    (19) condition -> expression MENOR_IGUAL expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 19 (condition -> expression MENOR_IGUAL expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 54
+
+    (13) for_statement -> FOR ID IGUAL expression . TO expression statement_list NEXT ID
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    TO              shift and go to state 56
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 55
+
+    (16) condition -> expression IGUAL IGUAL expression .
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+
+    THEN            reduce using rule 16 (condition -> expression IGUAL IGUAL expression .)
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+
+
+state 56
+
+    (13) for_statement -> FOR ID IGUAL expression TO . expression statement_list NEXT ID
+    (20) expression -> . expression MAIS term
+    (21) expression -> . expression MENOS term
+    (22) expression -> . term
+    (23) term -> . term VEZES factor
+    (24) term -> . term DIVIDIR factor
+    (25) term -> . factor
+    (26) factor -> . NUMERO
+    (27) factor -> . ID
+    (28) factor -> . PARENTESE_ESQ expression PARENTESE_DIR
+    (29) factor -> . MENOS factor
+
+    NUMERO          shift and go to state 20
+    ID              shift and go to state 21
+    PARENTESE_ESQ   shift and go to state 22
+    MENOS           shift and go to state 18
+
+    expression                     shift and go to state 57
+    term                           shift and go to state 17
+    factor                         shift and go to state 19
+
+state 57
+
+    (13) for_statement -> FOR ID IGUAL expression TO expression . statement_list NEXT ID
+    (20) expression -> expression . MAIS term
+    (21) expression -> expression . MENOS term
+    (2) statement_list -> . statement
+    (3) statement_list -> . statement_list statement
+    (4) statement -> . assign_statement
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . input_statement
+    (8) statement -> . for_statement
+    (9) assign_statement -> . ID IGUAL expression
+    (10) print_statement -> . PRINT expression
+    (12) if_statement -> . IF condition THEN statement
+    (11) input_statement -> . INPUT ID
+    (13) for_statement -> . FOR ID IGUAL expression TO expression statement_list NEXT ID
+
+    MAIS            shift and go to state 28
+    MENOS           shift and go to state 29
+    ID              shift and go to state 9
+    PRINT           shift and go to state 10
+    IF              shift and go to state 11
+    INPUT           shift and go to state 12
+    FOR             shift and go to state 13
+
+    statement_list                 shift and go to state 58
+    statement                      shift and go to state 3
+    assign_statement               shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    input_statement                shift and go to state 7
+    for_statement                  shift and go to state 8
+
+state 58
+
+    (13) for_statement -> FOR ID IGUAL expression TO expression statement_list . NEXT ID
+    (3) statement_list -> statement_list . statement
+    (4) statement -> . assign_statement
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . input_statement
+    (8) statement -> . for_statement
+    (9) assign_statement -> . ID IGUAL expression
+    (10) print_statement -> . PRINT expression
+    (12) if_statement -> . IF condition THEN statement
+    (11) input_statement -> . INPUT ID
+    (13) for_statement -> . FOR ID IGUAL expression TO expression statement_list NEXT ID
+
+    NEXT            shift and go to state 59
+    ID              shift and go to state 9
+    PRINT           shift and go to state 10
+    IF              shift and go to state 11
+    INPUT           shift and go to state 12
+    FOR             shift and go to state 13
+
+    statement                      shift and go to state 14
+    assign_statement               shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    input_statement                shift and go to state 7
+    for_statement                  shift and go to state 8
+
+state 59
+
+    (13) for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT . ID
+
+    ID              shift and go to state 60
+
+
+state 60
+
+    (13) for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .
+
+    ID              reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    PRINT           reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    IF              reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    INPUT           reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    FOR             reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    $end            reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+    NEXT            reduce using rule 13 (for_statement -> FOR ID IGUAL expression TO expression statement_list NEXT ID .)
+
